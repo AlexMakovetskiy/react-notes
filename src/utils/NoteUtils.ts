@@ -7,7 +7,11 @@ export function getformattedDate (): string {
     return `${day}-${month}-${year}`;
 }
 
-export function getHashtags(text: string): string[] {
+export function removeDuplicates(arr: Iterable<string> ): string[] {
+    return [...new Set(arr)];
+}
+
+export function getUniqueHashtags(text: string): string[] {
     const words = text.toLowerCase().split(' ');
     const tagsWithPunctuation = words.filter((word: string) => word.startsWith('#'));
     const hashtags = tagsWithPunctuation.map((word) => {
@@ -16,5 +20,5 @@ export function getHashtags(text: string): string[] {
         return word;
     });
 
-    return hashtags;
+    return removeDuplicates(hashtags);
 }

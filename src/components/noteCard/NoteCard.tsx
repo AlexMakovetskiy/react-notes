@@ -28,7 +28,7 @@ const NoteCard: FC<INoteCard> = ({content}) => {
             </Link>
             <div className="tag-list-wrap">
                 {
-                    Array.from(content.tagList).map((tagLine, index) => 
+                    content.tagList.map((tagLine, index) => 
                         <span key={index} className="tag-list-wrap__tag">{tagLine}</span>,
                     )
                 }

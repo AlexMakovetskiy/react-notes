@@ -11,7 +11,7 @@ import Header from '../../components/header/Header';
 import { addNote, updateNote } from '../../redux/features/noteList/NoteListSlice';
 import noteListSelector from '../../redux/features/noteList/NoteListSelector';
 import { setTag } from '../../redux/features/tagList/TagListSlice';
-import { getformattedDate, getHashtags } from '../../utils/NoteUtils';
+import { getformattedDate, getUniqueHashtags } from '../../utils/NoteUtils';
 
 import './CurrentNote.scss';
 
@@ -21,7 +21,7 @@ function CurrentNote() {
     const [noteState, setNoteState] = useState<INote>({
         noteId: uuidv4(),
         date: getformattedDate(),
-        tagList: new Set<string>(),
+        tagList: [],
         title: '',
         noteContent: '',
     });
@@ -31,24 +31,20 @@ function CurrentNote() {
     const isAddedNote = useAppSelector(noteListSelector).find((note) => note.noteId === noteState.noteId || params.id);
 
     useEffect(() => {
-        console.log(params.id);
-        
         if(params.id) {
             const currentNote = isAddedNote;
             if(currentNote)
                 setNoteState(currentNote);
         }
-    }, [isAddedNote, params.id]);
-
+    },  [isAddedNote, params.id]);
 
     function saveNote() {
-
-        const updatedNote: INote = {
+        const updatedNote = {
             noteId: noteState.noteId,
-            title: noteState.title.length ? noteState.title : 'Note',
-            noteContent: noteState.noteContent,
-            tagList: new Set(getHashtags(noteState.noteContent)),
             date: noteState.date,
+            tagList: getUniqueHashtags(noteState.noteContent),
+            title: noteState.title,
+            noteContent: noteState.noteContent,
         };
     
         setNoteState((prevState) => ({
@@ -94,7 +90,7 @@ function CurrentNote() {
                 <div className="tags-wrap">
                     Tags: 
                     {
-                        Array.from(noteState.tagList).map((tagLine, index) => 
+                        noteState.tagList.map((tagLine, index) => 
                             <span key={index} className="tags-wrap__subtitle">{tagLine}</span>,
                         )
                     }
