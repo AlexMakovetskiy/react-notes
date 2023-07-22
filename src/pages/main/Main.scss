@@ -1,0 +1,32 @@
+.main-page-wrap {
+    .main-page-container {
+        .control-panel {
+            padding: 20px 0;
+
+            .new-note-wrap {
+                padding-bottom: 16px;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .tag-list-wrap {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 12px;
+
+                font-size: 1.8rem;
+                font-weight: 700;
+            }
+        }
+
+        .note-list-wrapper {
+            padding-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+}
