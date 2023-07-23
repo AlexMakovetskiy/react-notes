@@ -52,7 +52,7 @@ function Main() {
             <main className="main-page-container">
                 <div className="control-panel">
                     <div className="new-note-wrap">
-                        <Button type="primary" onClick={() => navigator('/editor')} className="new-note-wrap__note-action">Add new note</Button>
+                        <Button type="primary" onClick={() => navigator('/react-notes/editor')} className="new-note-wrap__note-action">Add new note</Button>
                     </div>
                     <div className="tag-list-wrap">
                         Tags: 

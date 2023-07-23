@@ -25,7 +25,7 @@ const NoteCard: FC<INoteCard> = ({content}) => {
                     <img src={crossLogo} alt="remove note"/>
                 </button>
             </header>
-            <Link to={`/editor/${content.noteId}`}>
+            <Link to={`/react-notes/editor/${content.noteId}`}>
                 <h3 className="note-card-wrapper__title">{content.title}</h3>
             </Link>
             <div className="tag-list-wrap">
