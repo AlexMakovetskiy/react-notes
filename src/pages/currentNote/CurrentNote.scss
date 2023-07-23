@@ -1,0 +1,32 @@
+.editor-wrap {
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    &__edit-field {
+        margin: 10px 0 16px;
+    }
+
+    .tags-wrap {
+        padding-bottom: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        font-weight: 800;
+
+
+        &__subtitle {
+            font-weight: 600;
+        }   
+
+    }
+
+    .control-panel {
+        display: flex;
+        justify-content: flex-end;
+        gap: 24px;
+    }
+}

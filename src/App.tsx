@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+import Main from './pages/main/Main';
+import CurrentNote from './pages/currentNote/CurrentNote';
+
+import './index.scss';
+import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="notes-wrapper">
+            <Routes>
+                <Route path="/" element={<Main/>}/>
+                <Route path="/editor" element={<CurrentNote/>}/>
+                <Route path="/editor/:id" element={<CurrentNote/>}/>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
