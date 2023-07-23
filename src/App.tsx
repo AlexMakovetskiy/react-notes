@@ -10,7 +10,7 @@ function App() {
     return (
         <div className="notes-wrapper">
             <Routes>
-                <Route path="/" element={<Main/>}/>
+                <Route path="/react-notes" element={<Main/>}/>
                 <Route path="/editor" element={<CurrentNote/>}/>
                 <Route path="/editor/:id" element={<CurrentNote/>}/>
             </Routes>
