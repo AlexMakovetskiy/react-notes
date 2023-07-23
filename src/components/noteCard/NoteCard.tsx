@@ -6,6 +6,8 @@ import useAppDispatch from '../../hooks/useAppDiispatch';
 import { INoteCard } from '../../types/ComponentProps';
 import { removeNote } from '../../redux/features/noteList/NoteListSlice';
 
+import crossLogo from '../../assets/components/noteCard/crossNote.svg';
+
 import './NoteCard.scss';
 
 const NoteCard: FC<INoteCard> = ({content}) => {
@@ -20,7 +22,7 @@ const NoteCard: FC<INoteCard> = ({content}) => {
             <header className="header-card-wrap">
                 <span className="header-card-wrap__date-line">{content.date}</span>
                 <button className="header-card-wrap__remove-action" onClick={handleClick}>
-                    <img src="/assets/components/noteCard/crossNote.svg" alt="remove note"/>
+                    <img src={crossLogo} alt="remove note"/>
                 </button>
             </header>
             <Link to={`/editor/${content.noteId}`}>
