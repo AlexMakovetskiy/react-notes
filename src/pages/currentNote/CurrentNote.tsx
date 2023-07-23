@@ -43,7 +43,7 @@ function CurrentNote() {
             noteId: noteState.noteId,
             date: noteState.date,
             tagList: getUniqueHashtags(noteState.noteContent),
-            title: noteState.title,
+            title: noteState.title.length ? noteState.title : 'Note',
             noteContent: noteState.noteContent,
         };
     
